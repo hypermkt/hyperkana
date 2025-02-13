@@ -1,7 +1,9 @@
 "use client";
 
+import React, { useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { ReactSketchCanvas } from "react-sketch-canvas";
 
 export default function HiraganaDetail() {
   const params = useParams() as { letter: string };
@@ -17,14 +19,24 @@ export default function HiraganaDetail() {
   const letter = decodeURIComponent(encodedLetter);
 
   return (
-    <div className="flex flex-col h-screen bg-white">
-      <div className="flex-grow flex items-center justify-center">
-        <span className="text-[30rem] text-gray-300">{letter}</span>
+    <div className="relative flex flex-col h-screen bg-white">
+      <div className="flex-grow relative flex items-center justify-center">
+        <span className="text-[60rem] text-gray-300 absolute">{letter}</span>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <ReactSketchCanvas
+            strokeWidth={50} // 線の太さ
+            strokeColor="black" // 線の色
+            canvasColor="transparent" // キャンバスの背景を透明にしてひらがなが見えるようにする
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
       </div>
-
+      <div className="p-4 flex justify-center">
+        <button className="btn btn-secondary btn-lg text-4xl">けす</button>
+      </div>
       <div className="p-4 flex justify-center">
         <Link href="/hiragana">
-          <button className="btn btn-primary btn-lg text-4xl">もどる</button>
+          <button className="btn btn-secondary btn-lg text-4xl">もどる</button>
         </Link>
       </div>
     </div>

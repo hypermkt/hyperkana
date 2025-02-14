@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ReactSketchCanvas } from "react-sketch-canvas";

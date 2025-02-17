@@ -6,7 +6,9 @@ import Link from "next/link";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
 export default function HiraganaDetail() {
+  const canvasRef = useRef<any>(null);
   const params = useParams() as { letter: string };
+
   const encodedLetter = params.letter;
   if (!encodedLetter) {
     return (
@@ -17,8 +19,6 @@ export default function HiraganaDetail() {
   }
 
   const letter = decodeURIComponent(encodedLetter);
-
-  const canvasRef = useRef<any>(null);
 
   return (
     <div className="relative flex flex-col h-screen bg-white">

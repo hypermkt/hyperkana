@@ -16,10 +16,12 @@ export default function HiraganaList() {
 
   return (
     <div className="p-8">
-      <h1 className="text-6xl font-bold mb-8 text-center">あいうえおひょう</h1>
+      <h1 className="text-6xl md:text-6xl font-bold mb-8 text-center">
+        あいうえおひょう
+      </h1>
 
       {/* flex で右から左に並べる */}
-      <div className="flex flex-row-reverse justify-center gap-4">
+      <div className="flex flex-row-reverse justify-center gap-4 max-w-4xl mx-auto">
         {gojuonColumns.map((column, colIndex) => (
           <div key={colIndex} className="flex flex-col items-center gap-2">
             {column.map((char, rowIndex) => (

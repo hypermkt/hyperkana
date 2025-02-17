@@ -20,7 +20,7 @@ export default function HiraganaDetail() {
   return (
     <div className="relative flex flex-col h-screen bg-white">
       <div className="flex-grow relative flex items-center justify-center">
-        <span className="text-[60rem] text-gray-300 absolute">{letter}</span>
+        <span className="text-[30rem] text-gray-300 absolute">{letter}</span>
         <div className="absolute top-0 left-0 w-full h-full">
           <ReactSketchCanvas
             strokeWidth={50} // 線の太さ
@@ -30,10 +30,10 @@ export default function HiraganaDetail() {
           />
         </div>
       </div>
-      <div className="p-4 flex justify-center">
+      <div className="p-4 flex justify-center relative z-10">
         <button className="btn btn-secondary btn-lg text-4xl">けす</button>
       </div>
-      <div className="p-4 flex justify-center">
+      <div className="p-4 flex justify-center relative z-10">
         <Link href="/hiragana">
           <button className="btn btn-secondary btn-lg text-4xl">もどる</button>
         </Link>

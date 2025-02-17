@@ -3,10 +3,13 @@
 import { useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ReactSketchCanvas } from "react-sketch-canvas";
+import {
+  ReactSketchCanvas,
+  type ReactSketchCanvasRef,
+} from "react-sketch-canvas";
 
 export default function HiraganaDetail() {
-  const canvasRef = useRef<any>(null);
+  const canvasRef = useRef<ReactSketchCanvasRef>(null);
   const params = useParams() as { letter: string };
 
   const encodedLetter = params.letter;

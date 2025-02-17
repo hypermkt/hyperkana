@@ -27,7 +27,7 @@ export default function HiraganaDetail() {
         <div className="absolute top-0 left-0 w-full h-full">
           <ReactSketchCanvas
             ref={canvasRef}
-            strokeWidth={50} // 線の太さ
+            strokeWidth={40} // 線の太さ
             strokeColor="black" // 線の色
             canvasColor="transparent" // キャンバスの背景を透明にしてひらがなが見えるようにする
             style={{ width: "100%", height: "100%" }}

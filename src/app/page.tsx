@@ -4,13 +4,18 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center h-screen bg-base-200 px-3">
       <h1 className="text-6xl md:text-6xl font-bold mb-8 text-center max-w-md">
-        ひらがなを
-        <br />
-        <span className="whitespace-nowrap">なぞってまなぼう</span>
+        もじをなぞってあそぼう！
       </h1>
-      <Link href="/hiragana">
-        <button className="btn btn-primary btn-lg text-4xl">はじめる</button>
-      </Link>
+      <div className="m-3">
+        <Link href="/characters/hiragana">
+          <button className="btn btn-primary btn-lg text-4xl">ひらがな</button>
+        </Link>
+      </div>
+      <div className="m-3">
+        <Link href="/characters/katakana">
+          <button className="btn btn-primary btn-lg text-4xl">カタカナ</button>
+        </Link>
+      </div>
     </main>
   );
 }

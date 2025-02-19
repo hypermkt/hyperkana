@@ -1,6 +1,20 @@
 import Link from "next/link";
 
 export default function HiraganaList() {
+  // タイトル文字列
+  const title = "あいうえおひょう";
+  // 各文字に対応する背景色のクラス（必要に応じて色を変更できます）
+  const colors = [
+    "bg-sky-500", // 水色
+    "bg-blue-500", // 青
+    "bg-teal-500", // 青緑
+    "bg-indigo-500", // 藍
+    "bg-purple-500", // 紫
+    "bg-pink-500", // ピンク
+    "bg-red-500", // 赤
+    "bg-yellow-500", // 黄
+  ];
+
   const groups = [
     ["あ", "い", "う", "え", "お"], // あ行
     ["か", "き", "く", "け", "こ"], // か行
@@ -16,9 +30,18 @@ export default function HiraganaList() {
 
   return (
     <div className="p-4">
-      <h1 className="text-5xl lg:text-6xl font-bold text-center mb-4">
-        あいうえおひょう
-      </h1>
+      <div className="flex justify-center gap-2 mb-4">
+        {title.split("").map((char, index) => (
+          <div
+            key={index}
+            className={`w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full text-white text-4xl lg:text-5xl font-bold ${
+              colors[index % colors.length]
+            }`}
+          >
+            {char}
+          </div>
+        ))}
+      </div>
       <div className="flex flex-row-reverse justify-evenly gap-4 w-full">
         {groups.map((group, groupIndex) => (
           <div

@@ -10,7 +10,8 @@ import {
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
-  const params = useParams() as { letter: string };
+  const params = useParams() as { type: string; letter: string };
+  const type = params.type;
 
   const encodedLetter = params.letter;
   if (!encodedLetter) {
@@ -46,7 +47,7 @@ export default function HiraganaDetail() {
         </button>
       </div>
       <div className="p-4 flex justify-center relative z-10">
-        <Link href="/hiragana">
+        <Link href={`/characters/${type}`}>
           <button className="btn btn-secondary btn-lg text-4xl">もどる</button>
         </Link>
       </div>

@@ -1,7 +1,17 @@
-import Link from "next/link";
-import { title, groups, colors } from "@/app/constants/hiragana";
+"use client";
 
-export default function HiraganaList() {
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { hiragana, katakana } from "@/app/constants/hiragana";
+
+export default function CharactersPage() {
+  const params = useParams() as { type: string };
+
+  const type = params.type;
+  const title = type == "hiragana" ? hiragana.title : katakana.title;
+  const colors = type == "hiragana" ? hiragana.colors : katakana.colors;
+  const groups = type == "hiragana" ? hiragana.groups : katakana.groups;
+
   return (
     <div className="p-4">
       <div className="flex justify-center gap-2 mb-4">
@@ -28,7 +38,7 @@ export default function HiraganaList() {
                   key={index}
                   className="border-sky-500 border-4 p-2 text-4xl min-w-[3rem] min-h-[3rem] flex items-center justify-center lg:border-7 lg:text-6xl"
                 >
-                  <Link href={`/hiragana/${char}`}>{char}</Link>
+                  <Link href={`/characters/${type}/${char}`}>{char}</Link>
                 </div>
               ) : (
                 <div
@@ -39,6 +49,11 @@ export default function HiraganaList() {
             )}
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-8">
+        <Link href="/">
+          <button className="btn btn-primary btn-lg text-4xl">もどる</button>
+        </Link>
       </div>
     </div>
   );

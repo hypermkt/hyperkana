@@ -1,33 +1,7 @@
 import Link from "next/link";
+import { title, groups, colors } from "@/app/constants/hiragana";
 
 export default function HiraganaList() {
-  // タイトル文字列
-  const title = "あいうえおひょう";
-  // 各文字に対応する背景色のクラス（必要に応じて色を変更できます）
-  const colors = [
-    "bg-sky-500", // 水色
-    "bg-blue-500", // 青
-    "bg-teal-500", // 青緑
-    "bg-indigo-500", // 藍
-    "bg-purple-500", // 紫
-    "bg-pink-500", // ピンク
-    "bg-red-500", // 赤
-    "bg-yellow-500", // 黄
-  ];
-
-  const groups = [
-    ["あ", "い", "う", "え", "お"], // あ行
-    ["か", "き", "く", "け", "こ"], // か行
-    ["さ", "し", "す", "せ", "そ"], // さ行
-    ["た", "ち", "つ", "て", "と"], // た行
-    ["な", "に", "ぬ", "ね", "の"], // な行
-    ["は", "ひ", "ふ", "へ", "ほ"], // は行
-    ["ま", "み", "む", "め", "も"], // ま行
-    ["や", "ゆ", "よ", "", ""], // や行（3文字）
-    ["ら", "り", "る", "れ", "ろ"], // ら行
-    ["わ", "を", "ん", "", ""], // わ行（3文字）
-  ];
-
   return (
     <div className="p-4">
       <div className="flex justify-center gap-2 mb-4">

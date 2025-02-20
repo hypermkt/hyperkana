@@ -38,7 +38,7 @@ export default function CharactersPage() {
                   key={index}
                   className="border-sky-500 border-4 p-2 text-4xl min-w-[3rem] min-h-[3rem] flex items-center justify-center lg:border-7 lg:text-6xl"
                 >
-                  <Link href={`/characters/${type}/${char}`}>{char}</Link>
+                  <Link href={`/letters/${type}/${char}`}>{char}</Link>
                 </div>
               ) : (
                 <div

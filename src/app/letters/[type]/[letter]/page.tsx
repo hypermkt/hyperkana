@@ -47,7 +47,7 @@ export default function HiraganaDetail() {
         </button>
       </div>
       <div className="p-4 flex justify-center relative z-10">
-        <Link href={`/characters/${type}`}>
+        <Link href={`/letters/${type}`}>
           <button className="btn btn-secondary btn-lg text-4xl">もどる</button>
         </Link>
       </div>

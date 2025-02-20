@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { hiragana, katakana } from "@/app/constants/hiragana";
+import KanaTitleComponent from "@/app/components/KanaTitleComponent";
 
 export default function CharactersPage() {
   const params = useParams() as { type: string };
@@ -14,18 +15,7 @@ export default function CharactersPage() {
 
   return (
     <div className="p-4">
-      <div className="flex justify-center gap-2 mb-4">
-        {title.split("").map((char, index) => (
-          <div
-            key={index}
-            className={`w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full text-white text-4xl lg:text-5xl font-bold ${
-              colors[index % colors.length]
-            }`}
-          >
-            {char}
-          </div>
-        ))}
-      </div>
+      <KanaTitleComponent title={title} colors={colors} />
       <div className="flex flex-row-reverse justify-evenly gap-4 w-full">
         {groups.map((group, groupIndex) => (
           <div

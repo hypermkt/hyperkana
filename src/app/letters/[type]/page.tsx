@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { hiragana, katakana } from "@/app/constants/hiragana";
 import KanaTitleComponent from "@/app/components/KanaTitleComponent";
+import AnchorButtonComponent from "@/app/components/AnchorButtonComponent";
 
 export default function CharactersPage() {
   const params = useParams() as { type: string };
@@ -41,9 +42,7 @@ export default function CharactersPage() {
         ))}
       </div>
       <div className="flex justify-center mt-8">
-        <Link href="/">
-          <button className="btn btn-primary btn-lg text-4xl">もどる</button>
-        </Link>
+        <AnchorButtonComponent href={"/"}>もどる</AnchorButtonComponent>
       </div>
     </div>
   );

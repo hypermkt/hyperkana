@@ -3,6 +3,8 @@
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { hiragana, katakana } from "@/app/constants/hiragana";
+import KanaTitleComponent from "@/app/components/KanaTitleComponent";
+import AnchorButtonComponent from "@/app/components/AnchorButtonComponent";
 
 export default function CharactersPage() {
   const params = useParams() as { type: string };
@@ -14,18 +16,7 @@ export default function CharactersPage() {
 
   return (
     <div className="p-4">
-      <div className="flex justify-center gap-2 mb-4">
-        {title.split("").map((char, index) => (
-          <div
-            key={index}
-            className={`w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full text-white text-4xl lg:text-5xl font-bold ${
-              colors[index % colors.length]
-            }`}
-          >
-            {char}
-          </div>
-        ))}
-      </div>
+      <KanaTitleComponent title={title} colors={colors} />
       <div className="flex flex-row-reverse justify-evenly gap-4 w-full">
         {groups.map((group, groupIndex) => (
           <div
@@ -38,7 +29,7 @@ export default function CharactersPage() {
                   key={index}
                   className="border-sky-500 border-4 p-2 text-4xl min-w-[3rem] min-h-[3rem] flex items-center justify-center lg:border-7 lg:text-6xl"
                 >
-                  <Link href={`/characters/${type}/${char}`}>{char}</Link>
+                  <Link href={`/letters/${type}/${char}`}>{char}</Link>
                 </div>
               ) : (
                 <div
@@ -51,9 +42,7 @@ export default function CharactersPage() {
         ))}
       </div>
       <div className="flex justify-center mt-8">
-        <Link href="/">
-          <button className="btn btn-primary btn-lg text-4xl">もどる</button>
-        </Link>
+        <AnchorButtonComponent href={"/"}>もどる</AnchorButtonComponent>
       </div>
     </div>
   );

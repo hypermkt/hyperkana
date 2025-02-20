@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
 import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,

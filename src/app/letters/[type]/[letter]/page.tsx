@@ -27,18 +27,22 @@ export default function HiraganaDetail() {
 
   return (
     <div className="relative flex flex-col h-screen bg-white">
-      <div className="flex-grow relative flex items-center justify-center">
-        <span className="text-[30rem] text-gray-300 absolute">{letter}</span>
-        <div className="absolute top-0 left-0 w-full h-full">
+      <div className="flex-grow flex items-center justify-center mt-5">
+        <div className="relative w-[80%] max-w-[600px] aspect-square border-8 border-sky-300">
+          <span className="absolute inset-0 flex items-center justify-center text-[33rem] text-gray-300">
+            {letter}
+          </span>
           <ReactSketchCanvas
             ref={canvasRef}
-            strokeWidth={40} // 線の太さ
-            strokeColor="black" // 線の色
-            canvasColor="transparent" // キャンバスの背景を透明にしてひらがなが見えるようにする
-            style={{ width: "100%", height: "100%" }}
+            strokeWidth={40}
+            strokeColor="black"
+            canvasColor="transparent"
+            className="absolute inset-0 w-full h-full"
+            style={{ width: "100%", height: "100%", border: "none" }}
           />
         </div>
       </div>
+
       <div className="p-4 flex justify-center relative z-10">
         <ButtonComponent onClick={() => canvasRef.current?.clearCanvas()}>
           けす

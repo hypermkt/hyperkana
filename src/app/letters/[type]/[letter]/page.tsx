@@ -43,15 +43,17 @@ export default function HiraganaDetail() {
         </div>
       </div>
 
-      <div className="p-4 flex justify-center relative z-10">
-        <ButtonComponent onClick={() => canvasRef.current?.clearCanvas()}>
-          けす
-        </ButtonComponent>
-      </div>
-      <div className="p-4 flex justify-center relative z-10">
-        <AnchorButtonComponent href={`/letters/${type}`}>
-          もどる
-        </AnchorButtonComponent>
+      <div className="flex flex-row justify-center">
+        <div className="p-4 relative z-10">
+          <ButtonComponent onClick={() => canvasRef.current?.clearCanvas()}>
+            けす
+          </ButtonComponent>
+        </div>
+        <div className="p-4 relative z-10">
+          <AnchorButtonComponent href={`/letters/${type}`}>
+            もどる
+          </AnchorButtonComponent>
+        </div>
       </div>
     </div>
   );

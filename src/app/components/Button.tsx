@@ -8,7 +8,7 @@ export default function ButtonComponent({
   onClick,
 }: ButtonComponentProps) {
   return (
-    <button onClick={onClick} className="btn btn-primary btn-lg text-4xl">
+    <button onClick={onClick} className="btn btn-primary btn-lg text-4xl w-40">
       {children}
     </button>
   );

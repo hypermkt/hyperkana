@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "daisyui": "^4.12.23",
     "next": "15.1.7",
     "react": "^19.0.0",

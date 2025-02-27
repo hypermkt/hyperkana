@@ -1,12 +1,9 @@
-interface KanaTitleComponentProps {
+interface KanaTitleProps {
   title: string;
   colors: string[];
 }
 
-export default function KanaTitleComponent({
-  title,
-  colors,
-}: KanaTitleComponentProps) {
+export default function KanaTitle({ title, colors }: KanaTitleProps) {
   return (
     <div className="flex justify-center gap-2 mb-4">
       {title.split("").map((char, index) => (

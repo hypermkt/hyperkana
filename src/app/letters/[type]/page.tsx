@@ -3,8 +3,8 @@
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { hiragana, katakana } from "@/app/constants/hiragana";
-import KanaTitleComponent from "@/app/components/KanaTitleComponent";
-import AnchorButtonComponent from "@/app/components/AnchorButtonComponent";
+import KanaTitle from "@/app/components/KanaTitle";
+import AnchorButton from "@/app/components/AnchorButton";
 
 export default function CharactersPage() {
   const params = useParams() as { type: string };
@@ -16,7 +16,7 @@ export default function CharactersPage() {
 
   return (
     <div className="p-4">
-      <KanaTitleComponent title={title} colors={colors} />
+      <KanaTitle title={title} colors={colors} />
       <div className="flex flex-row-reverse justify-evenly gap-4 w-full">
         {groups.map((group, groupIndex) => (
           <div
@@ -42,7 +42,7 @@ export default function CharactersPage() {
         ))}
       </div>
       <div className="flex justify-center mt-8">
-        <AnchorButtonComponent href={"/"}>もどる</AnchorButtonComponent>
+        <AnchorButton href={"/"}>もどる</AnchorButton>
       </div>
     </div>
   );

@@ -6,11 +6,9 @@ import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,
 } from "react-sketch-canvas";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import AnchorButton from "@/app/components/AnchorButton";
 import Button from "@/app/components/Button";
+import NavigateCircleAnchorButton from "@/app/components/NavigateCircleAnchorButton";
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
@@ -45,12 +43,7 @@ export default function HiraganaDetail() {
           />
         </div>
       </div>
-      <div>え</div>
-      <button className="btn btn-circle btn-accent">
-        <Link href={`/letters/${type}/え`}>
-          <FontAwesomeIcon icon={faCaretRight} className="text-3xl" />
-        </Link>
-      </button>
+      <NavigateCircleAnchorButton letterType={"hiragana"} letter={"え"} />
       <div className="flex flex-row justify-center">
         <div className="p-4 relative z-10">
           <Button onClick={() => canvasRef.current?.clearCanvas()}>けす</Button>

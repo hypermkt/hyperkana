@@ -1,4 +1,4 @@
-import AnchorButtonComponent from "./components/AnchorButtonComponent";
+import AnchorButtonComponent from "./components/AnchorButton";
 
 export default function Home() {
   return (

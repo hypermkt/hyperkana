@@ -6,11 +6,11 @@ import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,
 } from "react-sketch-canvas";
-import AnchorButtonComponent from "@/app/components/AnchorButtonComponent";
-import ButtonComponent from "@/app/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import AnchorButton from "@/app/components/AnchorButton";
+import Button from "@/app/components/Button";
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
@@ -53,14 +53,10 @@ export default function HiraganaDetail() {
       </button>
       <div className="flex flex-row justify-center">
         <div className="p-4 relative z-10">
-          <ButtonComponent onClick={() => canvasRef.current?.clearCanvas()}>
-            けす
-          </ButtonComponent>
+          <Button onClick={() => canvasRef.current?.clearCanvas()}>けす</Button>
         </div>
         <div className="p-4 relative z-10">
-          <AnchorButtonComponent href={`/letters/${type}`}>
-            もどる
-          </AnchorButtonComponent>
+          <AnchorButton href={`/letters/${type}`}>もどる</AnchorButton>
         </div>
       </div>
     </div>

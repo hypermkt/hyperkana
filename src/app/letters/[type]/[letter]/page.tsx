@@ -30,8 +30,12 @@ export default function HiraganaDetail() {
     <div className="flex flex-col h-screen bg-white mt-5">
       <div className="">
         <div className="flex flex-row justify-center items-center mx-auto relative max-w-[600px] aspect-square">
-          <NavigateCircleAnchorButton letterType={"hiragana"} letter={"え"} />
-          <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300">
+          <NavigateCircleAnchorButton
+            direction={"left"}
+            letterType={"hiragana"}
+            letter={"え"}
+          />
+          <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300 ml-5 mr-5">
             <div className="text-[25rem] text-center text-gray-300">
               {letter}
             </div>
@@ -44,7 +48,11 @@ export default function HiraganaDetail() {
               style={{ width: "100%", height: "100%", border: "none" }}
             />
           </div>
-          <NavigateCircleAnchorButton letterType={"hiragana"} letter={"え"} />
+          <NavigateCircleAnchorButton
+            direction={"right"}
+            letterType={"hiragana"}
+            letter={"え"}
+          />
         </div>
       </div>
       <div className="flex flex-row justify-center">

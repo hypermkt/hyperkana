@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,
@@ -12,7 +12,10 @@ import NavigateCircleAnchorButton from "@/app/components/NavigateCircleAnchorBut
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
-  const params = useParams() as { type: string; letter: string };
+  const params = useParams() as {
+    type: "hiragana" | "katakana";
+    letter: string;
+  };
   const type = params.type;
 
   const encodedLetter = params.letter;
@@ -23,18 +26,23 @@ export default function HiraganaDetail() {
       </div>
     );
   }
-
   const letter = decodeURIComponent(encodedLetter);
+
+  const searchParams = useSearchParams();
+  const previousLetter = searchParams.get("previousLetter") || "";
+  const nextLetter = searchParams.get("nextLetter") || "";
 
   return (
     <div className="flex flex-col h-screen bg-white mt-5">
       <div className="">
         <div className="flex flex-row justify-center items-center mx-auto relative max-w-[600px] aspect-square">
-          <NavigateCircleAnchorButton
-            direction={"left"}
-            letterType={"hiragana"}
-            letter={"え"}
-          />
+          {previousLetter !== "" && (
+            <NavigateCircleAnchorButton
+              direction={"left"}
+              letterType={type}
+              letter={previousLetter}
+            />
+          )}
           <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300 ml-5 mr-5">
             <div className="text-[25rem] text-center text-gray-300">
               {letter}
@@ -48,11 +56,13 @@ export default function HiraganaDetail() {
               style={{ width: "100%", height: "100%", border: "none" }}
             />
           </div>
-          <NavigateCircleAnchorButton
-            direction={"right"}
-            letterType={"hiragana"}
-            letter={"え"}
-          />
+          {nextLetter !== "" && (
+            <NavigateCircleAnchorButton
+              direction={"right"}
+              letterType={type}
+              letter={nextLetter}
+            />
+          )}
         </div>
       </div>
       <div className="flex flex-row justify-center">

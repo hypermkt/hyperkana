@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,

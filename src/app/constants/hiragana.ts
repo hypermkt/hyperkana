@@ -54,6 +54,12 @@ function removeEmptyStrings(groups: string[][]): string[][] {
   return groups.map((group) => group.filter((char) => char !== ""));
 }
 
+/**
+ * 与えられた文字の次の文字を取得する
+ * @param {"hiragana" | "katakana"} type 文字の種類
+ * @param {string} currentChar 対象の文字
+ * @returns {string} 次の文字
+ */
 export function getNextLetter(
   type: "hiragana" | "katakana",
   currentChar: string
@@ -78,6 +84,12 @@ export function getNextLetter(
   return "";
 }
 
+/**
+ * 与えられた文字の前の文字を取得する
+ * @param {"hiragana" | "katakana"} type 文字の種類
+ * @param {string} currentChar 対象の文字
+ * @returns {string} 前の文字
+ */
 export function getPreviousLetter(
   type: "hiragana" | "katakana",
   currentChar: string

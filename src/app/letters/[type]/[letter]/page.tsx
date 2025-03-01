@@ -44,7 +44,7 @@ export default function HiraganaDetail() {
             />
           )}
           <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300 ml-5 mr-5">
-            <div className="text-[25rem] text-center text-gray-300">
+            <div className="text-[26rem] text-center text-gray-300">
               {letter}
             </div>
             <ReactSketchCanvas

@@ -9,6 +9,7 @@ import {
 import AnchorButton from "@/app/components/AnchorButton";
 import Button from "@/app/components/Button";
 import NavigateCircleAnchorButton from "@/app/components/NavigateCircleAnchorButton";
+import { getNextLetter, getPreviousLetter } from "@/app/constants/hiragana";
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
@@ -28,19 +29,18 @@ export default function HiraganaDetail() {
   }
   const letter = decodeURIComponent(encodedLetter);
 
-  const searchParams = useSearchParams();
-  const previousLetter = searchParams.get("previousLetter") || "";
-  const nextLetter = searchParams.get("nextLetter") || "";
+  const previous = getPreviousLetter(type, letter);
+  const next = getNextLetter(type, letter);
 
   return (
     <div className="flex flex-col h-screen bg-white mt-5">
       <div className="">
         <div className="flex flex-row justify-center items-center mx-auto relative max-w-[600px] aspect-square">
-          {previousLetter !== "" && (
+          {previous !== "" && (
             <NavigateCircleAnchorButton
               direction={"left"}
               letterType={type}
-              letter={previousLetter}
+              letter={previous}
             />
           )}
           <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300 ml-5 mr-5">
@@ -56,11 +56,11 @@ export default function HiraganaDetail() {
               style={{ width: "100%", height: "100%", border: "none" }}
             />
           </div>
-          {nextLetter !== "" && (
+          {next !== "" && (
             <NavigateCircleAnchorButton
               direction={"right"}
               letterType={type}
-              letter={nextLetter}
+              letter={next}
             />
           )}
         </div>

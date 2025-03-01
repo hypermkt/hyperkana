@@ -49,3 +49,55 @@ export const katakana = {
     ["ワ", "ヲ", "ン", "", ""], // ワ行（3文字）
   ],
 };
+
+function removeEmptyStrings(groups: string[][]): string[][] {
+  return groups.map((group) => group.filter((char) => char !== ""));
+}
+
+export function getNextLetter(
+  type: "hiragana" | "katakana",
+  currentChar: string
+): string {
+  const chars = removeEmptyStrings(
+    type === "hiragana" ? hiragana.groups : katakana.groups
+  );
+  for (let i = 0; i < chars.length; i++) {
+    const group = chars[i];
+    for (let j = 0; j < group.length; j++) {
+      if (group[j] === currentChar) {
+        if (j + 1 < group.length) {
+          return group[j + 1];
+        } else if (i + 1 < chars.length) {
+          return chars[i + 1][0];
+        } else {
+          return chars[0][0];
+        }
+      }
+    }
+  }
+  return "";
+}
+
+export function getPreviousLetter(
+  type: "hiragana" | "katakana",
+  currentChar: string
+): string {
+  const chars = removeEmptyStrings(
+    type === "hiragana" ? hiragana.groups : katakana.groups
+  );
+  for (let i = 0; i < chars.length; i++) {
+    const group = chars[i];
+    for (let j = 0; j < group.length; j++) {
+      if (group[j] === currentChar) {
+        if (j - 1 >= 0) {
+          return group[j - 1];
+        } else if (i - 1 >= 0) {
+          return chars[i - 1][chars[i - 1].length - 1];
+        } else {
+          return chars[chars.length - 1][chars[chars.length - 1].length - 1];
+        }
+      }
+    }
+  }
+  return "";
+}

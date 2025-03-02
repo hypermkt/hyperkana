@@ -16,8 +16,11 @@ export default function NumbersPage() {
           key={groupIndex}
           className="flex flex-rowl justify-center gap-4 w-full"
         >
-          {group.map((char) => (
-            <div className="border-sky-500 border-4 p-2 text-4xl min-w-[10rem] min-h-[10rem] flex items-center justify-center m-2">
+          {group.map((char, charIndex) => (
+            <div
+              key={charIndex}
+              className="border-sky-500 border-4 p-2 text-4xl min-w-[10rem] min-h-[10rem] flex items-center justify-center m-2"
+            >
               <span className="text-8xl">{char}</span>
             </div>
           ))}

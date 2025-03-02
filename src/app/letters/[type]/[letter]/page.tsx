@@ -35,7 +35,7 @@ export default function HiraganaDetail() {
   return (
     <div className="flex flex-col h-screen bg-white mt-5">
       <div className="">
-        <div className="flex flex-row justify-center items-center mx-auto relative max-w-[600px] aspect-square">
+        <div className="flex flex-row justify-center items-center mx-auto relative max-w-[500px] aspect-square">
           {previous !== "" && (
             <NavigateCircleAnchorButton
               direction={"left"}
@@ -44,12 +44,12 @@ export default function HiraganaDetail() {
             />
           )}
           <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300 ml-5 mr-5">
-            <div className="text-[26rem] text-center text-gray-300">
+            <div className="text-[22rem] text-center text-gray-300">
               {letter}
             </div>
             <ReactSketchCanvas
               ref={canvasRef}
-              strokeWidth={40}
+              strokeWidth={35}
               strokeColor="black"
               canvasColor="transparent"
               className="absolute inset-0 w-full h-full"

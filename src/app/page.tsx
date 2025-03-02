@@ -16,6 +16,9 @@ export default function Home() {
           カタカナ
         </AnchorButtonComponent>
       </div>
+      <div className="m-3">
+        <AnchorButtonComponent href={"/numbers"}>すうじ</AnchorButtonComponent>
+      </div>
     </main>
   );
 }

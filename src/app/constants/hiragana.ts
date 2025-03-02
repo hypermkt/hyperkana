@@ -50,6 +50,23 @@ export const katakana = {
   ],
 };
 
+export const numbers = {
+  title: "すうじひょう",
+  colors: [
+    "bg-sky-500", // 水色
+    "bg-blue-500", // 青
+    "bg-teal-500", // 青緑
+    "bg-indigo-500", // 藍
+    "bg-purple-500", // 紫
+    "bg-pink-500", // ピンク
+    "bg-red-500", // 赤
+  ],
+  groups: [
+    ["1", "2", "3", "4", "5"], // 1行
+    ["6", "7", "8", "9", "0"], // 2行
+  ],
+};
+
 function removeEmptyStrings(groups: string[][]): string[][] {
   return groups.map((group) => group.filter((char) => char !== ""));
 }

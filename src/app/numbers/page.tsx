@@ -3,6 +3,7 @@
 import { numbers } from "@/app/constants/hiragana";
 import KanaTitle from "@/app/components/KanaTitle";
 import AnchorButton from "../components/AnchorButton";
+import Link from "next/link";
 
 export default function NumbersPage() {
   const title = numbers.title;
@@ -22,7 +23,9 @@ export default function NumbersPage() {
               key={charIndex}
               className="border-sky-500 border-4 p-2 text-4xl min-w-[10rem] min-h-[10rem] flex items-center justify-center m-2"
             >
-              <span className="text-8xl">{char}</span>
+              <Link href={`/letters/numbers/${char}`}>
+                <span className="text-8xl">{char}</span>
+              </Link>
             </div>
           ))}
         </div>

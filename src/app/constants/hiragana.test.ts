@@ -21,6 +21,11 @@ describe("getNextLetter", () => {
     expect(getNextLetter("katakana", "ン")).toBe("ア");
   });
 
+  test("数字の次の文字を取得する", () => {
+    expect(getNextLetter("numbers", "0")).toBe("1");
+    expect(getNextLetter("numbers", "9")).toBe("0");
+  });
+
   test("存在しない文字を渡した場合は空文字を返す", () => {
     expect(getNextLetter("hiragana", "invalid")).toBe("");
     expect(getNextLetter("katakana", "invalid")).toBe("");
@@ -44,6 +49,11 @@ describe("getPreviousLetter", () => {
     expect(getPreviousLetter("katakana", "エ")).toBe("ウ");
     expect(getPreviousLetter("katakana", "オ")).toBe("エ");
     expect(getPreviousLetter("katakana", "ラ")).toBe("ヨ");
+  });
+
+  test("数字の前の文字を取得する", () => {
+    expect(getPreviousLetter("numbers", "0")).toBe("9");
+    expect(getPreviousLetter("numbers", "1")).toBe("0");
   });
 
   test("存在しない文字を渡した場合は空文字を返す", () => {

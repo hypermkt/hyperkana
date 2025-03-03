@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface NavigateButtonProps {
   direction: "left" | "right";
-  letterType: "hiragana" | "katakana";
+  letterType: "hiragana" | "katakana" | "numbers";
   letter: string;
 }
 

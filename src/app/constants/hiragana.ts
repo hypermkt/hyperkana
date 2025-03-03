@@ -50,23 +50,51 @@ export const katakana = {
   ],
 };
 
+export const numbers = {
+  title: "すうじひょう",
+  colors: [
+    "bg-sky-500", // 水色
+    "bg-blue-500", // 青
+    "bg-teal-500", // 青緑
+    "bg-indigo-500", // 藍
+    "bg-purple-500", // 紫
+    "bg-pink-500", // ピンク
+    "bg-red-500", // 赤
+  ],
+  groups: [
+    ["1", "2", "3", "4", "5"], // 1行
+    ["6", "7", "8", "9", "0"], // 2行
+  ],
+};
+
+type CharacterType = {
+  title: string;
+  colors: string[];
+  groups: string[][];
+};
+
+// オブジェクトのマッピングを作成
+const characterSets: Record<string, CharacterType> = {
+  hiragana,
+  katakana,
+  numbers,
+};
+
 function removeEmptyStrings(groups: string[][]): string[][] {
   return groups.map((group) => group.filter((char) => char !== ""));
 }
 
 /**
  * 与えられた文字の次の文字を取得する
- * @param {"hiragana" | "katakana"} type 文字の種類
+ * @param {"hiragana" | "katakana" | "numbers"} type 文字の種類
  * @param {string} currentChar 対象の文字
  * @returns {string} 次の文字
  */
 export function getNextLetter(
-  type: "hiragana" | "katakana",
+  type: "hiragana" | "katakana" | "numbers",
   currentChar: string
 ): string {
-  const chars = removeEmptyStrings(
-    type === "hiragana" ? hiragana.groups : katakana.groups
-  );
+  const chars = removeEmptyStrings(characterSets[type].groups);
   for (let i = 0; i < chars.length; i++) {
     const group = chars[i];
     for (let j = 0; j < group.length; j++) {
@@ -86,17 +114,15 @@ export function getNextLetter(
 
 /**
  * 与えられた文字の前の文字を取得する
- * @param {"hiragana" | "katakana"} type 文字の種類
+ * @param {"hiragana" | "katakana" | "number"} type 文字の種類
  * @param {string} currentChar 対象の文字
  * @returns {string} 前の文字
  */
 export function getPreviousLetter(
-  type: "hiragana" | "katakana",
+  type: "hiragana" | "katakana" | "numbers",
   currentChar: string
 ): string {
-  const chars = removeEmptyStrings(
-    type === "hiragana" ? hiragana.groups : katakana.groups
-  );
+  const chars = removeEmptyStrings(characterSets[type].groups);
   for (let i = 0; i < chars.length; i++) {
     const group = chars[i];
     for (let j = 0; j < group.length; j++) {

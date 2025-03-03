@@ -14,7 +14,7 @@ import { getNextLetter, getPreviousLetter } from "@/app/constants/hiragana";
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
   const params = useParams() as {
-    type: "hiragana" | "katakana";
+    type: "hiragana" | "katakana" | "numbers";
     letter: string;
   };
   const type = params.type;
@@ -31,6 +31,7 @@ export default function HiraganaDetail() {
 
   const previous = getPreviousLetter(type, letter);
   const next = getNextLetter(type, letter);
+  const backButtonHref = type === "numbers" ? "/numbers" : `/letters/${type}`;
 
   return (
     <div className="flex flex-col h-screen bg-white mt-5">
@@ -70,7 +71,7 @@ export default function HiraganaDetail() {
           <Button onClick={() => canvasRef.current?.clearCanvas()}>けす</Button>
         </div>
         <div className="p-4 relative z-10">
-          <AnchorButton href={`/letters/${type}`}>もどる</AnchorButton>
+          <AnchorButton href={backButtonHref}>もどる</AnchorButton>
         </div>
       </div>
     </div>

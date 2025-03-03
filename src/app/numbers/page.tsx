@@ -2,6 +2,7 @@
 
 import { numbers } from "@/app/constants/hiragana";
 import KanaTitle from "@/app/components/KanaTitle";
+import AnchorButton from "../components/AnchorButton";
 
 export default function NumbersPage() {
   const title = numbers.title;
@@ -26,6 +27,9 @@ export default function NumbersPage() {
           ))}
         </div>
       ))}
+      <div className="flex justify-center mt-8">
+        <AnchorButton href="/">もどる</AnchorButton>
+      </div>
     </div>
   );
 }

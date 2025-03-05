@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,
@@ -19,15 +19,10 @@ export default function HiraganaDetail() {
   };
   const type = params.type;
 
-  const encodedLetter = params.letter;
-  if (!encodedLetter) {
-    return (
-      <div className="flex items-center justify-center h-screen text-2xl">
-        文字が見つかりません
-      </div>
-    );
+  const letter = decodeURIComponent(params.letter);
+  if (!type || !letter) {
+    notFound();
   }
-  const letter = decodeURIComponent(encodedLetter);
 
   const previous = getPreviousLetter(type, letter);
   const next = getNextLetter(type, letter);

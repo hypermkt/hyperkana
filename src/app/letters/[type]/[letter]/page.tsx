@@ -10,6 +10,7 @@ import AnchorButton from "@/app/components/AnchorButton";
 import Button from "@/app/components/Button";
 import NavigateCircleAnchorButton from "@/app/components/NavigateCircleAnchorButton";
 import { getNextLetter, getPreviousLetter } from "@/app/constants/hiragana";
+import { allCharas } from "@/app/constants/hiragana";
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
@@ -20,7 +21,7 @@ export default function HiraganaDetail() {
   const type = params.type;
 
   const letter = decodeURIComponent(params.letter);
-  if (!type || !letter) {
+  if (!type || !allCharas.includes(letter)) {
     notFound();
   }
 

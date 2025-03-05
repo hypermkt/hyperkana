@@ -67,6 +67,11 @@ export const numbers = {
   ],
 };
 
+const hiraganaChars = hiragana.groups.flat().filter((char) => char !== "");
+const katakanaChars = katakana.groups.flat().filter((char) => char !== "");
+const numbersChars = numbers.groups.flat().filter((char) => char !== "");
+export const allCharas = [...hiraganaChars, ...katakanaChars, ...numbersChars];
+
 type CharacterType = {
   title: string;
   colors: string[];

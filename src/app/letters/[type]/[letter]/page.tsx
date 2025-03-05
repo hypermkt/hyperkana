@@ -2,15 +2,13 @@
 
 import { useRef } from "react";
 import { notFound, useParams } from "next/navigation";
-import {
-  ReactSketchCanvas,
-  type ReactSketchCanvasRef,
-} from "react-sketch-canvas";
+import { type ReactSketchCanvasRef } from "react-sketch-canvas";
 import AnchorButton from "@/app/components/AnchorButton";
 import Button from "@/app/components/Button";
 import NavigateCircleAnchorButton from "@/app/components/NavigateCircleAnchorButton";
 import { getNextLetter, getPreviousLetter } from "@/app/constants/hiragana";
 import { allCharas } from "@/app/constants/hiragana";
+import SketchCanvas from "@/app/components/SketchCanvas";
 
 export default function HiraganaDetail() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
@@ -40,19 +38,7 @@ export default function HiraganaDetail() {
               letter={previous}
             />
           )}
-          <div className="w-[100%] h-[100%] aspect-square  border-8 border-sky-300 ml-5 mr-5">
-            <div className="text-[22rem] text-center text-gray-300">
-              {letter}
-            </div>
-            <ReactSketchCanvas
-              ref={canvasRef}
-              strokeWidth={35}
-              strokeColor="black"
-              canvasColor="transparent"
-              className="absolute inset-0 w-full h-full"
-              style={{ width: "100%", height: "100%", border: "none" }}
-            />
-          </div>
+          <SketchCanvas letter={letter} ref={canvasRef} />
           {next !== "" && (
             <NavigateCircleAnchorButton
               direction={"right"}

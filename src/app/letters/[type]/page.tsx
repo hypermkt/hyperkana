@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useParams } from "next/navigation";
-import Link from "next/link";
-import { hiragana, katakana } from "@/app/constants/hiragana";
-import KanaTitle from "@/app/components/KanaTitle";
-import AnchorButton from "@/app/components/AnchorButton";
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
+import { hiragana, katakana } from '@/app/constants/hiragana';
+import KanaTitle from '@/app/components/KanaTitle';
+import AnchorButton from '@/app/components/AnchorButton';
 
 export default function CharactersPage() {
   const params = useParams() as { type: string };
 
   const type = params.type;
-  const title = type == "hiragana" ? hiragana.title : katakana.title;
-  const colors = type == "hiragana" ? hiragana.colors : katakana.colors;
-  const groups = type == "hiragana" ? hiragana.groups : katakana.groups;
+  const title = type == 'hiragana' ? hiragana.title : katakana.title;
+  const colors = type == 'hiragana' ? hiragana.colors : katakana.colors;
+  const groups = type == 'hiragana' ? hiragana.groups : katakana.groups;
 
   return (
     <div className="p-4">
@@ -42,7 +42,7 @@ export default function CharactersPage() {
         ))}
       </div>
       <div className="flex justify-center mt-8">
-        <AnchorButton href={"/"}>もどる</AnchorButton>
+        <AnchorButton href={'/'}>もどる</AnchorButton>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { numbers } from "@/app/constants/hiragana";
-import KanaTitle from "@/app/components/KanaTitle";
-import AnchorButton from "../components/AnchorButton";
-import Link from "next/link";
+import { numbers } from '@/app/constants/hiragana';
+import KanaTitle from '@/app/components/KanaTitle';
+import AnchorButton from '../components/AnchorButton';
+import Link from 'next/link';
 
 export default function NumbersPage() {
   const title = numbers.title;

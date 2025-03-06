@@ -1,4 +1,4 @@
-import AnchorButtonComponent from "./components/AnchorButton";
+import AnchorButtonComponent from './components/AnchorButton';
 
 export default function Home() {
   return (
@@ -7,17 +7,17 @@ export default function Home() {
         もじをなぞってあそぼう！
       </h1>
       <div className="m-3">
-        <AnchorButtonComponent href={"/letters/hiragana"}>
+        <AnchorButtonComponent href={'/letters/hiragana'}>
           ひらがな
         </AnchorButtonComponent>
       </div>
       <div className="m-3">
-        <AnchorButtonComponent href={"/letters/katakana"}>
+        <AnchorButtonComponent href={'/letters/katakana'}>
           カタカナ
         </AnchorButtonComponent>
       </div>
       <div className="m-3">
-        <AnchorButtonComponent href={"/numbers"}>すうじ</AnchorButtonComponent>
+        <AnchorButtonComponent href={'/numbers'}>すうじ</AnchorButtonComponent>
       </div>
     </main>
   );

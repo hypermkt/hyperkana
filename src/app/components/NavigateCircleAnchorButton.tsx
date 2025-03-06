@@ -1,10 +1,10 @@
-import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
+import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 interface NavigateButtonProps {
-  direction: "left" | "right";
-  letterType: "hiragana" | "katakana" | "numbers";
+  direction: 'left' | 'right';
+  letterType: 'hiragana' | 'katakana' | 'numbers';
   letter: string;
 }
 
@@ -13,7 +13,7 @@ export default function NavigateCircleAnchorButton({
   letterType,
   letter,
 }: NavigateButtonProps) {
-  const directionIcon = direction === "left" ? faCaretLeft : faCaretRight;
+  const directionIcon = direction === 'left' ? faCaretLeft : faCaretRight;
 
   return (
     <div className="flex flex-col items-center justify-center">

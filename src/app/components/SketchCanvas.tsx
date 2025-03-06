@@ -1,7 +1,7 @@
 import {
   ReactSketchCanvas,
   type ReactSketchCanvasRef,
-} from "react-sketch-canvas";
+} from 'react-sketch-canvas';
 
 interface SketchCanvasProps {
   letter: string;
@@ -18,7 +18,7 @@ export default function SketchCanvas({ letter, ref }: SketchCanvasProps) {
         strokeColor="black"
         canvasColor="transparent"
         className="absolute inset-0 w-full h-full"
-        style={{ width: "100%", height: "100%", border: "none" }}
+        style={{ width: '100%', height: '100%', border: 'none' }}
       />
     </div>
   );
